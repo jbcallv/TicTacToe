@@ -1,5 +1,7 @@
 import pygame
 
+from Grid import Grid
+
 pygame.init()
 
 # dimensions of game window
@@ -14,6 +16,10 @@ pygame.display.set_caption("Tic-Tac-Toe")
 # create game window
 pygame.display.flip()
 
+# grid class instantiation
+white = (255, 255, 255)
+game_grid = Grid(screen, WIDTH, HEIGHT, white)
+
 # game loop
 running = True
 while (running):
@@ -21,4 +27,5 @@ while (running):
         if (event.type == pygame.QUIT):
             running = False
 
+    game_grid.drawGrid()
     pygame.display.update()
