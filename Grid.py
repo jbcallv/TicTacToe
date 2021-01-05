@@ -103,3 +103,37 @@ class Grid:
             pygame.draw.line(self.window, self.color, (240, 245), (350, 350))
             pygame.draw.line(self.window, self.color, (240, 350), (350, 245))
         self.compOpp.generateSmartMove(self.cells)
+
+    def checkWin(self):
+        # increment when you see an 'x'
+        check_three_row = 0
+
+        # restart loop if 'o' or 'empty' is found
+        # check each row
+        for row in self.cells:
+            for col in row:
+                if row == 1:
+                    check_three_row += 1
+                else:
+                    # reset counter
+                    check_three_row = 0
+                    # move to next row
+                    break
+        
+        check_three_col = 0
+        # restart loop if 'o' or 'empty' is found
+        # check each column
+        for col_num in range(3):
+            for row in self.cells:
+                if row[col_num] == 1:
+                    check_three_col += 1
+                else:
+                    check_three_col = 0
+                    break
+
+        if check_three_row == 3:
+            return "ROW WIN"
+        elif check_three_col == 3:
+            return "COL WIN"
+        else:
+            return "NO WIN"

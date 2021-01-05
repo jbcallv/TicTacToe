@@ -37,7 +37,7 @@ while (running):
             if (event.key == pygame.K_KP4):
                 game_grid.keyFour()
             if (event.key == pygame.K_KP5):
-                game_grid.keyFive();
+                game_grid.keyFive()
             if (event.key == pygame.K_KP6):
                 game_grid.keySix()
             if (event.key == pygame.K_KP1):
@@ -46,6 +46,8 @@ while (running):
                 game_grid.keyTwo()
             if (event.key == pygame.K_KP3):
                 game_grid.keyThree()
+
+    print(game_grid.checkWin())
 
     game_grid.drawGrid()
     pygame.display.update()
